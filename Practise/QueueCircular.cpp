@@ -34,10 +34,10 @@ void insert(int n)
 
 void remove()
 {
-
+cout<<"UNDERFLOW!"<<endl;
 }
 
 int main()
 {
-    
+
 }

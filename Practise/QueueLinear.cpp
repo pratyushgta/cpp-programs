@@ -28,6 +28,7 @@ void remove()
     if(front!=-1 || front<rear){
     queue[front];
     front++;
+    cout<<"Deleted!"<<endl;
     }
     else
     cout<<"UNDERFLOW!"<<endl;

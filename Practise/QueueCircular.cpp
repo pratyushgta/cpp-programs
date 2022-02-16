@@ -7,8 +7,9 @@ int queue[5];
 int size=5;
 int front=-1;
 int rear=-1;
+int push_val=0;
 
-void insert(int n)
+void insert()
 {
     if(front==0 && rear==size-1 || front==rear+1){
         cout<<"The queue is full!"<<endl;
@@ -27,7 +28,7 @@ void insert(int n)
         {
             rear++;
         }
-    queue[rear]=n;
+    queue[rear]=++push_val;
     cout<<"Call added to the queue"<<endl;
     }
 }
@@ -68,7 +69,7 @@ void display()
         {
             cout<<queue[i]<<" ";
         }
-        for(int j=0;j<=rear;j++) //to print all elements from start till rear value
+        for(int j=0;j<rear;j++) //to print all elements from start till rear value
         {
             cout<<queue[j]<<" ";
         }
@@ -86,18 +87,14 @@ void display()
 int main()
 {                    
 int choice=0;
-    int push_val=0;
-
     do{
     cout<<"\nQUEUE OPERATIONS\n1. Insert\n2. Delete\n3. Display\n4. Exit"<<endl;
         cout<<"Enter: "<<endl;
         cin>>choice;
         switch(choice)
         {
-            case 1: //cout<<"Enter a number to insert: "<<endl;
-           // cin>>push_val;
-            push_val++;
-            insert(push_val);
+            case 1: 
+            insert();
             break;
 
             case 2: remove();
@@ -112,6 +109,7 @@ int choice=0;
             default: cout<<"Invalid Input"<<endl;
             break;
         } 
+        cout<<push_val<<endl;
     }
     while(choice<4);
 }

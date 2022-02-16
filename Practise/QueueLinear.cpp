@@ -7,7 +7,7 @@ int size=100;
 int front=-1;
 int rear=-1;
 
-void insert(int n)
+void insert(int n)  //aka enqueue
 {
     if(rear>=size-1){
     cout<<"OVERFLOW!"<<endl;
@@ -23,15 +23,21 @@ void insert(int n)
     }
 }
 
-void remove()
+void remove()  //aka dequeue
 {
-    if(front!=-1 || front<rear){
-    queue[front];
-    front++;
-    cout<<"Deleted!"<<endl;
+    if(front==-1 && rear==-1 || front>rear){
+         cout<<"UNDERFLOW!"<<endl;
+    }
+    else if(front==rear)
+    {
+        front=-1;
+        rear=-1;
     }
     else
-    cout<<"UNDERFLOW!"<<endl;
+    {
+     cout<<queue[front]<<" deleted!"<<endl;
+        front++;
+    }
 }
 
 void display()

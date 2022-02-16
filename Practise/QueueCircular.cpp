@@ -3,15 +3,15 @@
 using namespace std;
 
 
-int queue[100];
-int size=100;
+int queue[5];
+int size=5;
 int front=-1;
 int rear=-1;
 
 void insert(int n)
 {
     if(front==0 && rear==size-1 || front==rear+1){
-        cout<<"OVERFLOW!"<<endl;
+        cout<<"The queue is full!"<<endl;
     }
     else
     {
@@ -28,7 +28,7 @@ void insert(int n)
             rear++;
         }
     queue[rear]=n;
-    cout<<"Value Pushed"<<endl;
+    cout<<"Call added to the queue"<<endl;
     }
 }
 
@@ -36,10 +36,11 @@ void remove()
 {
     if(front==-1)
     {
-         cout<<"UNDERFLOW!"<<endl;
+         cout<<"All operators are busy at the moment!"<<endl;
     }
     else
     {
+        cout<<"Call "<<queue[front]<<" deleted!"<<endl;
         if(front == rear)
         {
             front=-1;
@@ -51,8 +52,7 @@ void remove()
         else
         {
             front++;
-        }
-        cout<<"Deleted!"<<endl;
+        } 
     }
 }
 
@@ -60,7 +60,7 @@ void display()
 {
     if(front==-1 && rear==-1)
     {
-        cout<<"Queue is Empty!"<<endl;
+        cout<<"No calls in the queue, currently!"<<endl;
     }
     else if(front>rear) //this means that front is somewhere in the middle of the queue & rear is at back of front
     {
@@ -94,8 +94,9 @@ int choice=0;
         cin>>choice;
         switch(choice)
         {
-            case 1: cout<<"Enter a number to insert: "<<endl;
-            cin>>push_val;
+            case 1: //cout<<"Enter a number to insert: "<<endl;
+           // cin>>push_val;
+            push_val++;
             insert(push_val);
             break;
 

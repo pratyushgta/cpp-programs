@@ -1,1 +1,1 @@
-The string is INVALID!
+3

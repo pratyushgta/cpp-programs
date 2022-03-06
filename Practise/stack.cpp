@@ -8,7 +8,7 @@ int top=-1;
 
 void push(int n)
 {
-    if(top>n-1)
+    if(top>size-1)
     cout<<"OVERFLOW!"<<endl;
     else{
     stack[++top]=n;

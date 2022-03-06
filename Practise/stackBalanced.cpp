@@ -11,7 +11,7 @@ int pop_counter=0;
 
 string push(char ch,int n) //ascii (=40 {=123 [=91 )=41 }=125 ]=93
 {
-    if(top>(n-1)) //checks if the stack is full
+    if(top>(size-1)) //checks if the stack is full
     return "Overflow";
     else{
     stack[++top]=(int)ch;
@@ -46,14 +46,15 @@ int main()
     {
         if(str.at(i)=='('||str.at(i)=='{'||str.at(i)=='[')
         {
-            push_counter++; //counter to keep track of current iteration of pushed element
+           
             string rs=push(str[i],push_counter);
             if(rs=="Overflow"){
                 over_under=true;
                 cout<<"OVERFLOW!";
             }
-            else if(rs=="true");
+            else if(rs=="true")
             {
+                push_counter++; //counter to keep track of current iteration of pushed element
                 continue; //if element is successfully pushed, then the loop continues
             }
         }

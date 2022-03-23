@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 int stack[100];
@@ -85,7 +86,12 @@ int main()
                 result = val_2 / val_1;
                 push(result);
             }
+            else if (ch == '^' || ch == '$')
+            {
+                result = pow(val_2, val_1);
+                push(result);
+            }
         }
     }
-    display(); //to display the stack after evaluation 
+    display(); // to display the stack after evaluation
 }

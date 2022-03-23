@@ -9,7 +9,7 @@ struct tree
     struct tree *right;
 };
 
-struct tree *root = NULL;[]
+struct tree *root = NULL;
 
 void create()
 {

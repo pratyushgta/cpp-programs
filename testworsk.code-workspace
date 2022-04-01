@@ -13,7 +13,12 @@
 			"regex": "cpp",
 			"cstring": "cpp",
 			"new": "cpp",
-			"iosfwd": "cpp"
+			"iosfwd": "cpp",
+			"random": "cpp",
+			"bitset": "cpp",
+			"initializer_list": "cpp",
+			"utility": "cpp",
+			"valarray": "cpp"
 		}
 	}
 }

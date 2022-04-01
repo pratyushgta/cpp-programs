@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <sstream>
 using namespace std;
 
 struct tree
@@ -11,10 +12,6 @@ struct tree
 
 struct tree *root = NULL;
 
-void create()
-{
-}
-
 struct tree *insert(struct tree *r, int val)
 {
     struct tree *newnode = new tree;
@@ -25,6 +22,7 @@ struct tree *insert(struct tree *r, int val)
     {
         // newnode->data = val;
         r = newnode;
+        // cout << "Tree is empty!" << endl;
     }
     else if (val < r->data)
     {
@@ -51,8 +49,8 @@ void postorder(struct tree *r)
 {
     if (r != NULL)
     {
-        inorder(r->left);
-        inorder(r->right);
+        postorder(r->left);
+        postorder(r->right);
         cout << r->data << " ";
     }
 }
@@ -62,8 +60,8 @@ void preorder(struct tree *r)
     if (r != NULL)
     {
         cout << r->data << " ";
-        inorder(r->left);
-        inorder(r->right);
+        preorder(r->left);
+        preorder(r->right);
     }
 }
 
@@ -96,20 +94,38 @@ int main()
     int choice2 = 0;
     int create_counter = 0;
     int in_val = 0;
+    string v = "";
+
     do
     {
-        cout << "\nBST OPERATIONS\n1. Insert\n2. Display\n3. Search\n4. Exit" << endl;
+        cout << "\nBST OPERATIONS\n1. Create\n2. Insert\n3. Display\n4. Search\n5. Exit" << endl;
         cout << "Enter: " << endl;
         cin >> choice;
         switch (choice)
         {
         case 1:
+            // v="";
+            cout << "\nEnter a value or enter `e` to exit" << endl;
+            while (v != "e")
+            {
+                cout << "Enter a value to insert: " << endl;
+                cin >> v;
+                if (v == "e")
+                    break;
+                stringstream value(v);
+                int x = 0;
+                value >> x;
+                insert(root, x);
+                v = "";
+            }
+            break;
+        case 2:
             cout << "Enter a value to insert: " << endl;
             cin >> in_val;
             root = insert(root, in_val);
             break;
 
-        case 2:
+        case 3:
             cout << "\nHow do you want to display?\n1. Preorder\n2. Inorder\n3. Postorder\n4. Back" << endl;
             cin >> choice2;
             switch (choice2)
@@ -169,12 +185,12 @@ int main()
             }
             break;
 
-        case 3:
+        case 4:
             cout << "Enter a value to search: " << endl;
             cin >> in_val;
             search(root, in_val);
             break;
-        case 4:
+        case 5:
             cout << "Goodbye!" << endl;
             break;
 
@@ -182,5 +198,5 @@ int main()
             cout << "\nInvalid Input" << endl;
             break;
         }
-    } while (choice < 4);
+    } while (choice < 5);
 }
